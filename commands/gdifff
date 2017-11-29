@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd $1 \
+&& git diff --name-status HEAD$(wave $2) HEAD | grep -v '^D' | grep '.c$' | awk '{print($2)}' \
+|| echo "Please check Source directory."
