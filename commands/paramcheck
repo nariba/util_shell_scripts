@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ $# == 0 ]
-then
-    echo "paramcheck: invalid argument."
-    exit 1
-fi
