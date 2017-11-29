@@ -1,0 +1,26 @@
+#!/bin/sh
+
+PARAM_1=0
+
+# 引数の長さが 0 でなければ、
+# PARAM_1 にそれをセット
+if [ $# != 1 ]
+then
+    echo "isint: invalid argument"
+    exit 1
+fi
+
+if [ ! -z $1 ]; then
+    PARAM_1=$1
+fi
+# PARAM_1 に + 1 をし、その戻り値を RET に保存
+expr $PARAM_1 + 1 > /dev/null 2>&1
+RET=$?
+
+#### 戻り値を使って正常か異常か判定
+if [ $RET -lt 2 ]; then
+    exit
+else
+    exit 1
+fi
+
